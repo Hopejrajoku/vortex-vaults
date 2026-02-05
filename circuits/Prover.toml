@@ -1,0 +1,5 @@
+secret = "1"
+nullifier_seed = "2"
+public_id = "3"
+root = "4"
+nullifier_hash = "0x17cb544f4d22abbae88f69c706f21367d7925abb131a13836745714dc896c150"

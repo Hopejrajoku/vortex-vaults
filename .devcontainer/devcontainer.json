@@ -1,0 +1,17 @@
+{
+  "name": "Vortex Vaults Development",
+  "image": "mcr.microsoft.com/devcontainers/rust:1",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "postCreateCommand": "bash .devcontainer/post-install.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "noir-lang.noir-vscode",
+        "starkware.starknet-remote-compile",
+        "software-mansion.cairo-ls"
+      ]
+    }
+  }
+}

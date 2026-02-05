@@ -1,0 +1,17 @@
+cat <<EOF > .gitignore
+# Noir / Nargo
+target/
+decisions/
+witness/
+*.gz
+
+# Cairo / Scarb
+target/
+*.casm
+*.sierra
+
+# Environment / Secrets
+.env
+node_modules/
+.DS_Store
+EOF
