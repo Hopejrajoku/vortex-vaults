@@ -55,6 +55,7 @@ Our environment is fully containerized. To verify the cryptographic integrity:
 1. **Enter the Circuit Directory:**
    ```bash
    cd circuits
-2. Bash
-``nargo execute vortex_proof``
+2.
+   ```bash
+   nargo execute vortex_proof
 Validation: Observe the terminal output: [circuits] Circuit witness successfully solved.
