@@ -50,6 +50,13 @@ By utilizing the **Atomiq SDK**, we allow users to move native BTC into the Vort
 
 ---
 
+## This project is fully containerized. You can run the entire Vortex Vault suite (Cairo, Noir, and Starknet Foundry) without installing any local dependencies.
+
+### Option A: GitHub Codespaces (Recommended)
+1. Click the **Code** button on this repo.
+2. Select the **Codespaces** tab and click **Create codespace on main**.
+3. Wait ~60 seconds for the container to build. All tools (`scarb`, `sncast`, `nargo`) are pre-configured.
+
 ##  How to Verify Locally
 Our environment is fully containerized. To verify the cryptographic integrity:
 
