@@ -36,3 +36,9 @@ Bash
 Validation: Observe the terminal output: [circuits] Circuit witness successfully solved.
 
 Note: This confirms that the test vectors in Prover.toml satisfy every mathematical constraint in the circuit. The generated witness file in target/ is the basis for the final ZK-proof.
+
+## Feature,Standard Bridge,Traditional Mixer,Vortex Vaults
+Privacy,❌ None (Public),⚠️ Centralized/Custodial,✅ ZK-Shielded (Noir)
+Bitcoin Security,✅ Native,❌ High Trust Required,✅ Trust-minimized
+L2 Performance,✅ Fast,❌ Slow/Manual,✅ Starknet Native
+Auditability,✅ Public,❌ Black Box,✅ Math-Provable
