@@ -1,44 +1,60 @@
-# Vortex Vaults: Technical Implementation
-Vortex Vaults solves the "privacy-liquidity trilemma" by combining Bitcoin security, Noir’s ZK-precision, and Starknet’s scalability. Our architecture ensures that while the assets are verified on-chain, the link between the depositor and the withdrawer is cryptographically erased.
+# Vortex Vaults
+> **Quantum-safe, ZK-shielded liquidity for the Bitcoin-Starknet era.**
 
-## 1. Zero-Knowledge Architecture (Noir)
-Our privacy layer is powered by a Noir circuit utilizing a Deterministic Nullifier pattern. This is the same logic used by industry leaders like Aztec to provide "Shielded" transactions.
+**Sepolia Contract Address:** `0xYOUR_DEPLOYED_ADDRESS_HERE`
 
-The "Secret" Mechanism: A user generates a private secret and a nullifier_seed. These never leave the user's local machine.
+---
 
-Pedersen Hashing: The circuit uses the Pedersen hash function—optimized for ZK-snarks—to derive a public nullifier_hash. Because this hash is deterministic, the user can only spend their deposit once, but the protocol cannot trace the hash back to the original deposit.
+## The Vision
+**The Problem:** In 2026, privacy is the primary institutional hurdle for Bitcoin DeFi. Every bridge transaction currently doxxes a user's financial history by linking public UTXOs to public L2 addresses.
 
-Identity Linking: The circuit bridges the private secret to a public_id (the Starknet recipient address). This ensures that even if a proof were intercepted, the funds could only be released to the intended recipient.
+**The Solution:** Vortex Vaults solves the "privacy-liquidity trilemma" by combining **Bitcoin security**, **Noir’s ZK-precision**, and **Starknet’s scalability**. Our architecture ensures that while assets are verified on-chain, the link between the depositor and the withdrawer is cryptographically erased.
 
-Circuit Soundness: The assert constraints in Noir guarantee that if a single bit of the input is changed (e.g., trying to withdraw to a different address or using a fake secret), the proof will fail to generate.
+## Competitive Advantage: Why Vortex Wins
 
-## 2. Smart Contract Layer (Cairo 2.x)
-The Starknet contracts serve as the "On-Chain Judge." They don't need to know your secrets; they only need to see the math check out.
+| Feature | Standard Bridge | Traditional Mixer | **Vortex Vaults** |
+| :--- | :--- | :--- | :--- |
+| **User Privacy** | ❌ Public Link | ⚠️ Centralized Risk | ✅ **ZK-Shielded (Noir)** |
+| **Trust Model** | ✅ Trustless | ❌ High Trust | ✅ **Trust-minimized** |
+| **Regulatory Fit** | ❌ Fully Public | ❌ Often Sanctioned | ✅ **ZK-Identity Compatible** |
+| **Auditability** | ✅ Yes | ❌ No | ✅ **ZK-Provable** |
 
-VortexVault.cairo: This is the heart of the vault. It tracks used nullifier_hashes in a persistent Map. When a withdrawal is requested, the contract checks if the nullifier has been seen before. If not, it verifies the ZK-proof and releases the BTC-equivalent assets.
+---
 
-Verifier.cairo: A specialized contract designed to verify Noir’s UltraHonk proofs. It performs the complex elliptic curve pairings required to "greenlight" a proof on-chain in a gas-efficient manner.
+##  Technical Implementation
 
-## 3. Atomiq Bridge Integration (Conceptual)
-Vortex acts as the "Private Extension" for Bitcoin. By utilizing the Atomiq SDK, we allow users to move native BTC into the Vortex Vault. Once the BTC is "Vortexed" on Starknet, the user can move value privately across the L2 ecosystem, eventually exiting back to Bitcoin without a traceable on-chain trail.
+### 1. Zero-Knowledge Architecture (Noir)
+Our privacy layer is powered by a Noir circuit utilizing a **Deterministic Nullifier** pattern—the same logic used by industry leaders like Aztec to provide "Shielded" transactions.
 
-How to Verify Locally
-Our environment is fully containerized. To verify the cryptographic integrity of the system:
+* **The "Secret" Mechanism:** A user generates a private `secret` and a `nullifier_seed` locally.
+* **Pedersen Hashing:** Optimized for ZK-SNARKs, this derives a public `nullifier_hash`. Because it is deterministic, double-spending is impossible, yet the protocol cannot trace the hash back to the original deposit.
+* **Identity Linking:** The circuit bridges the private secret to a `public_id` (Starknet recipient). This ensures funds are only released to the intended recipient even if a proof is intercepted.
+* **Circuit Soundness:** Strict `assert` constraints in Noir guarantee that if a single bit is changed (fake secret or wrong address), the proof fails.
 
-Enter the Circuit Directory:
+### 2. Smart Contract Layer (Cairo 2.x)
+The Starknet contracts serve as the "On-Chain Judge," verifying the math without seeing the secrets.
 
-Bash
-``cd circuits``
-Generate the Witness: Run the execution engine to solve the circuit constraints:
+* **VortexVault.cairo:** Tracks used `nullifier_hashes` in a persistent Map. It verifies the ZK-proof before releasing BTC-equivalent assets.
+* **Verifier.cairo:** A specialized contract designed to verify Noir’s **UltraHonk** proofs, performing complex elliptic curve pairings in a gas-efficient manner.
 
-Bash
+### 3. Atomiq Bridge Integration (Conceptual)
+By utilizing the **Atomiq SDK**, we allow users to move native BTC into the Vortex Vault. Once "Vortexed" on Starknet, the value moves privately across the L2 ecosystem, eventually exiting back to Bitcoin without a traceable on-chain trail.
+
+---
+
+##  Roadmap: Beyond the Hackathon
+* **Q2 2026:** **Recursive Proofs** – Implementing proof aggregation to reduce withdrawal gas costs by up to 90%.
+* **Q3 2026:** **Atomiq SDK Deep Integration** – Enabling one-click native BTC ↔ Shielded Starknet liquidity swaps.
+* **Q4 2026:** **L3 Privacy Layer** – Launching a dedicated AppChain for ultra-low-cost confidential transactions and private DeFi primitives.
+
+---
+
+##  How to Verify Locally
+Our environment is fully containerized. To verify the cryptographic integrity:
+
+1. **Enter the Circuit Directory:**
+   ```bash
+   cd circuits
+2. Bash
 ``nargo execute vortex_proof``
 Validation: Observe the terminal output: [circuits] Circuit witness successfully solved.
-
-Note: This confirms that the test vectors in Prover.toml satisfy every mathematical constraint in the circuit. The generated witness file in target/ is the basis for the final ZK-proof.
-
-## Feature,Standard Bridge,Traditional Mixer,Vortex Vaults
-Privacy,❌ None (Public),⚠️ Centralized/Custodial,✅ ZK-Shielded (Noir)
-Bitcoin Security,✅ Native,❌ High Trust Required,✅ Trust-minimized
-L2 Performance,✅ Fast,❌ Slow/Manual,✅ Starknet Native
-Auditability,✅ Public,❌ Black Box,✅ Math-Provable
