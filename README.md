@@ -1,8 +1,9 @@
 # Vortex Vaults
 > **Quantum-safe, ZK-shielded liquidity for the Bitcoin-Starknet era.**
 
-**Sepolia Contract Address:** `0xYOUR_DEPLOYED_ADDRESS_HERE`
-
+## Live on Starknet Sepolia
+- **Contract Address:** [0x052422ead523b8a4647b240aa63b00fcfb6c6a45a2799d4b31aa6ea41e955e10](https://sepolia.voyager.online/contract/0x052422ead523b8a4647b240aa63b00fcfb6c6a45a2799d4b31aa6ea41e955e10)
+- **Verified Source Code:** [View on Voyager](https://sepolia.voyager.online/contract/0x052422ead523b8a4647b240aa63b00fcfb6c6a45a2799d4b31aa6ea41e955e10)
 ---
 
 ## The Vision
