@@ -76,6 +76,10 @@ This project is fully containerized. You can run the entire Vortex Vault suite (
 2. Select the **Codespaces** tab and click **Create codespace on main**.
 3. Wait ~60 seconds for the container to build. All tools (`scarb`, `sncast`, `nargo`) are pre-configured.
 
+### Local VS Code
+1. Ensure you have [Docker](https://www.docker.com/) and the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) installed.
+2. Clone the repo and open in VS Code. Click **"Reopen in Container"** when prompted.
+
 ## How to Verify Locally
 Our environment is fully containerized. To verify the cryptographic integrity:
 
