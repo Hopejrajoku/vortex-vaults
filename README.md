@@ -1,17 +1,25 @@
 # Vortex Vaults
 > **Quantum-safe, ZK-shielded liquidity for the Bitcoin-Starknet era.**
 
-## Live on Starknet Sepolia
+## 🌐 Live on Starknet Sepolia
 - **Contract Address:** [0x052422ead523b8a4647b240aa63b00fcfb6c6a45a2799d4b31aa6ea41e955e10](https://sepolia.voyager.online/contract/0x052422ead523b8a4647b240aa63b00fcfb6c6a45a2799d4b31aa6ea41e955e10)
-- **Verified Source Code:** [View on Voyager](https://sepolia.voyager.online/contract/0x052422ead523b8a4647b240aa63b00fcfb6c6a45a2799d4b31aa6ea41e955e10)
+- **Verified Source Code:** [View on Voyager](https://sepolia.voyager.online/contract/0x052422ead523b8a4647b240aa63b00fcfb6c6a45a2799d4b31aa6ea41e955e10#code)
+
 ---
 
-## The Vision
+## 🏁 RE{DEFINE} Hackathon Track Alignment
+Vortex Vaults is a cross-track innovation designed for the 2026 Starknet ecosystem:
+* **🔒 Privacy Track:** We utilize Noir ZK-circuits and Cairo verifiers to implement deterministic nullifiers and confidential transactions, breaking the on-chain link between users.
+* **₿ Bitcoin Track:** We solve the primary hurdle for BTCFi—privacy—by providing a trust-minimized vault for Bitcoin-native liquidity on Starknet.
+
+---
+
+## 🌪️ The Vision
 **The Problem:** In 2026, privacy is the primary institutional hurdle for Bitcoin DeFi. Every bridge transaction currently doxxes a user's financial history by linking public UTXOs to public L2 addresses.
 
 **The Solution:** Vortex Vaults solves the "privacy-liquidity trilemma" by combining **Bitcoin security**, **Noir’s ZK-precision**, and **Starknet’s scalability**. Our architecture ensures that while assets are verified on-chain, the link between the depositor and the withdrawer is cryptographically erased.
 
-## Competitive Advantage: Why Vortex Wins
+## 🏆 Competitive Advantage: Why Vortex Wins
 
 | Feature | Standard Bridge | Traditional Mixer | **Vortex Vaults** |
 | :--- | :--- | :--- | :--- |
@@ -22,7 +30,17 @@
 
 ---
 
-##  Technical Implementation
+## 💼 Real-World Use Cases
+Vortex Vaults provides the privacy layer necessary for institutional and personal Bitcoin adoption:
+
+* **Institutional Yield Shielding:** Large funds can move Bitcoin into Starknet DeFi (Yield, Lending, LPing) without "doxxing" their treasury size or trading strategies to competitors.
+* **Private Payroll & B2B Payments:** Companies can pay vendors or employees in BTC-backed assets on Starknet. ZK-nullifiers break the link between the corporate treasury and individual salary withdrawals.
+* **Selective Disclosure for Compliance:** While transactions are private, users can generate specific ZK-proofs to prove "Source of Funds" to regulated exchanges without revealing their entire financial history.
+* **Confidential Remittance:** Send value across borders to family members safely. The ZK-vault ensures that observers cannot trace person-to-person transfers on the public ledger.
+
+---
+
+## ⚙️ Technical Implementation
 
 ### 1. Zero-Knowledge Architecture (Noir)
 Our privacy layer is powered by a Noir circuit utilizing a **Deterministic Nullifier** pattern—the same logic used by industry leaders like Aztec to provide "Shielded" transactions.
@@ -43,21 +61,26 @@ By utilizing the **Atomiq SDK**, we allow users to move native BTC into the Vort
 
 ---
 
-##  Roadmap: Beyond the Hackathon
+## 🗺️ Roadmap: Beyond the Hackathon
 * **Q2 2026:** **Recursive Proofs** – Implementing proof aggregation to reduce withdrawal gas costs by up to 90%.
 * **Q3 2026:** **Atomiq SDK Deep Integration** – Enabling one-click native BTC ↔ Shielded Starknet liquidity swaps.
 * **Q4 2026:** **L3 Privacy Layer** – Launching a dedicated AppChain for ultra-low-cost confidential transactions and private DeFi primitives.
 
 ---
 
-## This project is fully containerized. You can run the entire Vortex Vault suite (Cairo, Noir, and Starknet Foundry) without installing any local dependencies.
+## 🛠️ Development Environment
+This project is fully containerized. You can run the entire Vortex Vault suite (Cairo, Noir, and Starknet Foundry) without installing any local dependencies.
 
 ### GitHub Codespaces (Recommended)
 1. Click the **Code** button on this repo.
 2. Select the **Codespaces** tab and click **Create codespace on main**.
 3. Wait ~60 seconds for the container to build. All tools (`scarb`, `sncast`, `nargo`) are pre-configured.
 
-##  How to Verify Locally
+### Local VS Code
+1. Ensure you have [Docker](https://www.docker.com/) and the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) installed.
+2. Clone the repo and open in VS Code. Click **"Reopen in Container"** when prompted.
+
+## 🧪 How to Verify Locally
 Our environment is fully containerized. To verify the cryptographic integrity:
 
 1. **Enter the Circuit Directory:**
