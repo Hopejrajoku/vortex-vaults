@@ -7,7 +7,7 @@
 
 ## Proof of Execution
 ![Terminal Proof](./contract.png)
-*Figure 1: Successful Proof of Live on Starknet Sepolia*
+**Figure 1: Successful Proof of Live on Starknet Sepolia**
 ---
 
 ## RE{DEFINE} Hackathon Track Alignment
