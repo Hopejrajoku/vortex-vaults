@@ -24,7 +24,7 @@ Vortex Vaults is a cross-track innovation designed for the 2026 Starknet ecosyst
 
 **The Solution:** Vortex Vaults solves the "privacy-liquidity trilemma" by combining **Bitcoin security**, **Noir’s ZK-precision**, and **Starknet’s scalability**. Our architecture ensures that while assets are verified on-chain, the link between the depositor and the withdrawer is cryptographically erased.
 
-## Competitive Advantage: Why Vortex Wins
+### Competitive Advantage: Why Vortex Wins
 
 | Feature | Standard Bridge | Traditional Mixer | **Vortex Vaults** |
 | :--- | :--- | :--- | :--- |
